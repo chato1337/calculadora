@@ -22,6 +22,12 @@
             border-radius: 5px;
         }
 
+        button:hover{
+            color: gray;
+            background-color: white;
+            transition-delay: 100ms
+        }
+
         .numero{
             color: white;
             background-color: gray;
@@ -42,7 +48,8 @@
         }
 
         .numero_cero {
-            width: 120px;
+            width: 130px;
+            height: 35px;
         }
 
         .suma {
@@ -133,7 +140,7 @@
         var isNew = true;
         var isSelected = false;
         var operadorx;
-        var resultado;
+        var resultado_obtenido;
 
         imprimir(numero);
 
@@ -170,15 +177,17 @@
             parseInt(memoria);
 
             if(operadorx=='suma'){
-                resultado = store + parseInt(memoria);
+                resultado_obtenido = store + parseInt(memoria);
             }else if(operadorx=='resta'){
-                resultado = store - memoria;
+                resultado_obtenido = store - memoria;
             }else if(operadorx=='multiplicacion'){
-                resultado = store * memoria;
+                resultado_obtenido = store * memoria;
+            }else if(operadorx=='division'){
+                resultado_obtenido = store / memoria;
             }
 
             isSelected = false;
-            memoria = resultado;
+            memoria = resultado_obtenido;
             return imprimir(memoria);
         }
 
@@ -186,6 +195,7 @@
             memoria = '';
             operadorx;
             isNew = true;
+            store;
 
             return imprimir(numero);
         }
